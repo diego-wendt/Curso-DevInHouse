@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="../Imagens/favicon.png" type="image/x-icon">
+    <title>Portal de Eventos</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navBar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <section>
+            <div class="titulo">
+                <h1>EVENTO PRINCIPAL</h1>
+            </div>
+            <div class="mainEvent">
+                <div class="mainEvent_Header">
+                    <h1>Nightwish no #Brasil</h1>
+                    <h1>Show Internacional</h1>
+                </div>
+                <div class="mainEvent_Image">
+                    <picture>
+                        <source media="(max-width: 750px)" srcset="../Imagens/nightwish-p.jpg" type="image/jpg">
+                        <img src="../Imagens/nightwish-g.jpg" alt="Banda Nightwish">
+                    </picture>
+                </div>
+                <div class="mainEvent_Footer">
+                    <div class="mainEvent_Data">
+                        <h2>Local</h2>
+                        <h2>São Paulo - SP</h2>
+                    </div>
+                    <div class="mainEvent_Local">
+                        <h2>Data</h2>
+                        <h2>10/10/2022</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secondaryEvent_Block">
+            <div class="titulo">
+                <h1>EVENTOS SECUNDÁRIOS</h1>
+            </div>
+            <div class="secondaryEvent">
+
+                <div class="secondaryEvent_Card">
+                    <div class="secondaryEvent_Header">
+                        <h2>Guns and Roses</h2>
+                    </div>
+                    <div class="secondaryEvent_Image">
+                        <img src="../Imagens/guns.png" alt="Banda Guns and Roses">
+                    </div>
+                    <div class="secondaryEvent_Footer">
+                        <div class="secondaryEvent_Data">
+                            <h2>Local</h2>
+                            <h2>São Paulo - SP</h2>
+                        </div>
+                        <div class="secondaryEvent_Local">
+                            <h2>Data</h2>
+                            <h2>10/10/2022</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secondaryEvent_Card">
+                    <div class="secondaryEvent_Header">
+                        <h2>Symphony-X</h2>
+                    </div>
+                    <div class="secondaryEvent_Image">
+                        <img src="../Imagens/symphonyx.jpg" alt="Banda Symphony-X">
+                    </div>
+                    <div class="secondaryEvent_Footer">
+                        <div class="secondaryEvent_Data">
+                            <h2>Local</h2>
+                            <h2>São Paulo - SP</h2>
+                        </div>
+                        <div class="secondaryEvent_Local">
+                            <h2>Data</h2>
+                            <h2>10/10/2022</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secondaryEvent_Card">
+                    <div class="secondaryEvent_Header">
+                        <h2>Knotfest</h2>
+                    </div>
+                    <div class="secondaryEvent_Image">
+                        <img src="../Imagens/knotfest.png" alt="knotfest">
+                    </div>
+                    <div class="secondaryEvent_Footer">
+                        <div class="secondaryEvent_Data">
+                            <h2>Local</h2>
+                            <h2>São Paulo - SP</h2>
+                        </div>
+                        <div class="secondaryEvent_Local">
+                            <h2>Data</h2>
+                            <h2>10/10/2022</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contactForm">
+
+            <div class="titulo">
+                <h1>ENTRE EM CONTATO CONOSCO</h1>
+            </div>
+            <div class="forms">
+                <form class="formsGroup" action="javascript:submitFormContact()">
+                    <input class="input-form" id="nome" placeholder="Nome" />
+                    <input class="input-form" id="email" placeholder="E-mail" />
+                    <input class="input-form" id="telefone" placeholder="Telefone" />
+            </div>
+            <div>
+                <textarea class="textarea-form" id="descricao" name="story" rows="10"
+                    placeholder="Descrição"></textarea>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footerUp">
+                <p>Textinho qualquer para ocupar espaço.</p>
+            </div>
+            <div class="footerListGroup">
+                <ul class="footerList">
+                    <div class="footerTable" id="ft1">
+                        <li class="footerListItem"><a href="#">Sobre nós</a></li>
+                        <li class="footerListItem"><a href="#">Termos e condições</a></li>
+                        <li class="footerListItem"><a href="#">Política de privacidade</a></li>
+                    </div>
+                    <div class="footerTable" id="ft2">
+                        <li class="footerListItem"><a href="#">Anuncie conosco</a></li>
+                        <li class="footerListItem"><a href="#">Acessibilidade</a></li>
+                        <li class="footerListItem"><a href="#">Carreiras</a></li>
+                    </div>
+                </ul>
+            </div>
+            <div class="footerDown">
+                <p>Todos os direitos reservados para ninguém e alguns poucos.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
