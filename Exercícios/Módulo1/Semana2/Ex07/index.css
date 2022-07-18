@@ -1,0 +1,298 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(23, 23, 23);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+/* -------NAVBAR---------- */
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  background-color: #111111;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.navBar ul {
+  display: flex;
+  align-items: center;
+}
+
+.navBar ul li {
+  list-style: none;
+}
+
+.navBar a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 1em;
+  display: inline-block;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.navBar a:hover,
+.navBar a:focus {
+  transition: all 300ms ease-in-out;
+  color: #7e7e7e5d;
+  background-color: #161616;
+  text-decoration: underline;
+  text-decoration-color: #b4b3b35d;
+}
+
+/* ---- CSS Main Card ---- */
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  color: white;
+}
+
+.mainEvent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  background-color: rgb(226, 224, 224);
+}
+
+.mainEvent_Header {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px 20px 0px;
+  align-items: center;
+}
+
+.mainEvent_Image img {
+  width: 100%;
+}
+
+.mainEvent_Footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.mainEvent_Data,
+.mainEvent_Local {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+
+/* ---- CSS Secondary Card ---- */
+
+.secondaryEvent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.secondaryEvent_Card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 30px;
+  background-color: rgb(226, 224, 224);
+}
+
+.secondaryEvent_Header {
+  display: flex;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+}
+
+.secondaryEvent_Image img {
+  width: 100%;
+}
+
+.secondaryEvent_Footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.secondaryEvent_Data,
+.secondaryEvent_Local {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+
+/* ---- CSS Forms ---- */
+.contactForm {
+  width: 100%;
+}
+
+.formsGroup {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.input-form {
+  width: 32%;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.textarea-form {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.button-form{
+display: flex;
+margin-top: 20px;
+justify-content: center;
+}
+
+.button-send{
+display: flex;
+height: 40px;
+width: 150px;
+align-items: center;
+justify-content: center;
+border-radius: 20px;
+}
+
+/* ---------RODAPÉ-------- */
+
+
+footer {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.footerUp {
+  margin-bottom: 20px;
+}
+
+
+.footerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerTable {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+#ft1, #ft2{
+  border-width: 1px;
+  border-color: rgb(0, 0, 0);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#ft1{
+  border-top-style: solid;
+}
+
+#ft2{
+  border-bottom-style: solid;
+ }
+
+ .footerTable a{
+  text-decoration: none;
+  color: black;
+ }
+
+.footerListItem {
+  list-style: none;
+  width: 100%;
+}
+
+.footerDown {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+
+/* ----------otimização para telas menores----------- */
+
+@media screen and (max-width: 750px) {
+
+  main {
+    margin-left: 2%;
+    margin-right: 2%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .secondaryEvent {
+    flex-direction: column;
+  }
+
+  .secondaryEvent_Card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .formsGroup {
+    flex-direction: column;
+  }
+
+  .input-form {
+    width: 100%;
+  }
+
+  .footerTable {
+     flex-direction: column;
+  }
+
+  #ft1{
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
+
+  #ft2{
+    padding-top: 0px;
+    padding-bottom: 5px;
+  }
+
+  .footerListItem{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+
+}
