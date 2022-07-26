@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    align-items: center;
+}
+
+.mensagem {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
