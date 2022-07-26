@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>DevBank</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="grupo">
+            <div class="items">
+                <label for="conta">
+                    <h1>Selecione a conta:</h1>
+                </label>
+                <select id="selectConta">
+                    <option value="0">Escolha a conta:</option>
+                </select>
+
+                <label for="valor">
+                    <h1>Valor</h1>
+                </label>
+                <input type="number" id="valor" placeholder="Valor">
+
+                <label for="operacao">
+                    <h1>Selecione a operação:</h1>
+                </label>
+                <select id="operacao">
+                    <option value="0">Selecione</option>
+                    <option value="1">Sacar</option>
+                    <option value="2">Depositar</option>
+                </select>
+                <button id="button">Confirmar</button>
+            </div>
+            <div class="mensagem">
+                <Strong id="mensagem"></Strong>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="index.js"></script>
+
+</html>
