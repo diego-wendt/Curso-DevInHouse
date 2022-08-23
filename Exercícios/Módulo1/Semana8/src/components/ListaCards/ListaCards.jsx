@@ -7,7 +7,12 @@ export const ListaCards = ({ produtos }) => {
   const [idSelecionados, setIdSelecionados] = useState([]);
 
   const handleSelecionar = (idASelecionar) => {
-    console.log(idASelecionar);
+    if(idSelecionados.includes(idASelecionar)){
+      setIdSelecionados(idSelecionados.filter((id) => id !== idASelecionar));
+    } else {
+      setIdSelecionados([...idSelecionados,idASelecionar]);
+    }
+    
     };
  
   return (
