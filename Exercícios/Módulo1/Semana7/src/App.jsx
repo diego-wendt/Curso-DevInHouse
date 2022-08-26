@@ -1,14 +1,13 @@
-
-import './App.css'
-import { NavBar } from './Components'
+import "./App.css";
+import { Footer, Header } from "./Components";
 
 function App() {
-  
   return (
     <div className="App">
-      <NavBar/>
+      <Header />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,52 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    background-color: burlywood;
+    align-items: center;
+    padding: 10px;
+    font-size: large;
+    color: var(--fontColor);
+    margin-top: 0px;
+}
+
+.leftBar {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.leftBar ul{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.leftBar ul li {
+    list-style: none;
+    padding: 10px;
+    font-size: 1.5rem;
+
+}
+
+.rightBar {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.rightBar p {
+    padding-top: 10px;
+    text-align: justify;
+    font-size: 1.5em
+}
+
+.socialMedias {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    font-size: 2.0rem;
+    padding-top: 1rem;
+}
