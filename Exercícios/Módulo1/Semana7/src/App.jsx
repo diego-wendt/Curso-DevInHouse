@@ -1,11 +1,12 @@
 
 import './App.css'
+import { NavBar } from './Components'
 
 function App() {
   
   return (
     <div className="App">
-      <h1>Gula.com</h1>
+      <NavBar/>
     </div>
   )
 }
