@@ -1,8 +1,7 @@
 import styles from "./Card.module.css";
 import imagem from "../../assets/imgs/foto.png";
-import PropTypes from "prop-types";
 
-export const Card = ( prop ) => {
+export const Card = (prop) => {
   return (
     <div className={styles.section}>
       <img src={imagem} alt="Foto" />
@@ -12,13 +11,4 @@ export const Card = ( prop ) => {
       <div>Tempo de preparo: {prop.tempo}</div>
     </div>
   );
-};
-
-Card.propTypes = {
-  prop: PropTypes.shape({
-    nome: PropTypes.string,
-    descricao: PropTypes.string,
-    valor: PropTypes.number,
-    tempo: PropTypes.string,
-  }),
 };
