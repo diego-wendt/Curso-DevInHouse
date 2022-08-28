@@ -1,3 +1,8 @@
 .secao {
     background-color: cadetblue;
+    padding-bottom: 10px;
+}
+
+.titulo{
+    margin: 10px;
 }

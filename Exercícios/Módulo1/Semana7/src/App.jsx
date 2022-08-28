@@ -5,18 +5,18 @@ import { pratos } from "./services/pratos.json";
 const produtos = pratos;
 
 function App() {
-
+  const tiposPrincipais = [...new Set(produtos.map((p) => p.secao))];
+  // console.log(tiposPrincipais);
 
   return (
     <div className="App">
+      <Header />
 
-      {/* <Header /> */}
+      {tiposPrincipais.map((p) => (
+        <Secao key={p} secao={p} produtos={produtos} />
+      ))}
 
-      <Secao secao="Entradas" produtos={produtos}/>
-      <Secao secao="Principais" produtos={produtos}/>
-      <Secao secao="Sobremesas" produtos={produtos}/>
-
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

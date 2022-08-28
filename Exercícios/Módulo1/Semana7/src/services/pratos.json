@@ -101,16 +101,6 @@
     },
     {
       "id": 11,
-      "img": "/assets/risoto.png",
-      "nome": "Risoto Araripe",
-      "descricao": "Risoto cremoso de coelho temperado com molho de caças, nozes e cogumelos cultivados no interior de Gramado.",
-      "valor": 134,
-      "tempoPreparo": "40 min",
-      "secao": "Principais",
-      "subSecao": "Massas e Risotos"
-    },
-    {
-      "id": 12,
       "img": "/assets/risoto-pantano.png",
       "nome": "Risoto Pântano & Mar",
       "descricao": "Com lascas de jacaré e imponentes camarões, servidos em base de risoto clássico com açafrão, cogumelos caramelizados e pó de bottarga.",
@@ -120,7 +110,7 @@
       "subSecao": "Massas e Risotos"
     },
     {
-      "id": 13,
+      "id": 12,
       "img": "/assets/macarrao-serra.png",
       "nome": "Macarrão Serra Grande",
       "descricao": "Tradicional macarrão caseiro italiano produzido em nossa região servido ao molho de perdizes marinadas cozidas lentamente na panela. O clássico dos caçadores.",
@@ -130,7 +120,7 @@
       "subSecao": "Massas e Risotos"
     },
     {
-      "id": 14,
+      "id": 13,
       "img": "/assets/strudel.png",
       "nome": "Strudel da Montanha",
       "descricao": "Torta de maçã e nozes com calda de pimenta, alecrim e manjericão com sorvete artesanal de creme.",
@@ -140,7 +130,7 @@
       "subSecao": ""
     },
     {
-      "id": 15,
+      "id": 14,
       "img": "/assets/zabaione.png",
       "nome": "Zabaione de Frutas Silvestres",
       "descricao": "Frutas silvestres ao creme de ovos com canela, aromatizado com vinho licoroso.",
@@ -150,7 +140,7 @@
       "subSecao": ""
     },
     {
-      "id": 16,
+      "id": 15,
       "img": "/assets/pecan.png",
       "nome": "Pecan Pie",
       "descricao": "Deliciosa torta de nozes com sorvete artesanal de creme.",

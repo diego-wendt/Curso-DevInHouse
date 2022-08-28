@@ -3,7 +3,7 @@ import imagem from "../../assets/imgs/foto.png";
 
 export const Card = (prop) => {
   return (
-    <div className={styles.section}>
+    <div className={styles.card}>
       <img src={imagem} alt="Foto" />
       <div>Nome: {prop.nome}</div>
       <div>Descrição: {prop.descricao}</div>

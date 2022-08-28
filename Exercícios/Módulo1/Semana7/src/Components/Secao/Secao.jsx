@@ -1,19 +1,23 @@
 import styles from "./Secao.module.css";
-import { Card } from "../index";
+import { SubSecao } from "../index";
+import PropTypes from "prop-types";
 
 export const Secao = ({ secao, produtos }) => {
-
-  
+  const filtroEntrada = produtos.filter((p) => p.secao == secao);
+  const tiposSub = [...new Set(filtroEntrada.map((p) => p.subSecao))];
 
   return (
     <div className={styles.secao}>
-      <h2>{secao}</h2>
+      <h2 className={styles.titulo}>{secao}</h2>
 
-
-
-      {produtos.map((p) => (
-        <Card key={p.id} nome={p.nome} descricao={p.descricao} valor={p.valor} tempo={p.tempoPreparo}/>
+      {tiposSub.map((sub) => (
+        <SubSecao key={sub} sub={sub} produtos={produtos} />
       ))}
     </div>
   );
+};
+
+Secao.propTypes = {
+  secao: PropTypes.string,
+  produtos: PropTypes.arrayOf(PropTypes.object),
 };

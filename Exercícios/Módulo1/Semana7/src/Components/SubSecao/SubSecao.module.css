@@ -1,0 +1,9 @@
+.subSecao {
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo{
+    margin-left: 100px;
+}
