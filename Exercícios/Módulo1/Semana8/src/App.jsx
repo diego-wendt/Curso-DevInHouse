@@ -2,43 +2,37 @@ import { Footer, Header, Secao } from "@components";
 import produtos from "@services/produtos.json";
 import styles from "./App.module.css";
 
+const subSecoesEntradas = new Set(produtos.entradas.map((p) => p.subSecao));
+const subSecoesPrincipais = new Set(produtos.principais.map((p) => p.subSecao));
+
+const secoes = [
+  {
+    nome: "Entradas",
+    produtos: produtos.entradas,
+    subSecoes: subSecoesEntradas,
+  },
+  {
+    nome: "Principais",
+    produtos: produtos.principais,
+    subSecoes: subSecoesPrincipais,
+  },
+  { nome: "Sobremesas", produtos: produtos.sobremesas },
+];
+
 function App() {
-  const subSecoesEntradas = new Set(produtos.entradas.map((p) => p.subSecao));
-  const subSecoesPrincipais = new Set(
-    produtos.principais.map((p) => p.subSecao)
-  );
-  console.log(subSecoesEntradas, subSecoesPrincipais);
-
-  let secoes = [
-    {
-      nome: "Entradas",
-      itens: produtos.entradas,
-      subSecoes: Array.from(subSecoesEntradas),
-    },
-    {
-      nome: "Principais",
-      itens: produtos.principais,
-      subSecoes: Array.from(subSecoesPrincipais),
-    },
-    {
-      nome: "Sobremesas",
-      itens: produtos.sobremesas,
-      subSecoes: null,
-    },
-  ];
-
   return (
     <div className={styles.app}>
       <Header />
       <main className={styles.main}>
-        {secoes.map((secao) => (
-          <Secao
-            key={secao.nome}
-            nome={secao.nome}
-            produtos={secao.itens}
-            subSecoes={secao.subSecoes && Array.from(secao.subSecoes)}
-          />
-        ))}
+        {secoes.map((secao) => {
+          return (
+            <Secao
+              nome={secao.nome}
+              produtos={secao.produtos}
+              subSecoes={secao.subSecoes ? Array.from(secao.subSecoes) : null}
+            />
+          );
+        })}
       </main>
       <Footer />
     </div>
