@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 
 export const FiltroSecao = ({ secoes = [], onSelecionarSecao }) => {
   return (
-    <div >
+    <div>
       <ul className={styles.areaBotoes}>
         {secoes.map((secao) => (
           <li>
-            <button onClick={() => {}}>{secao.nome}</button>
+            <button onClick={() => onSelecionarSecao(secao.nome)}>
+              {secao.nome}
+            </button>
           </li>
         ))}
       </ul>
