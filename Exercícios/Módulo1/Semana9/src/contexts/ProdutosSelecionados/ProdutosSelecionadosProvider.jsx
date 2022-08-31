@@ -1,12 +1,13 @@
-import { ProdutosSelecionadosContext } from "./ProdutosSelecionadosContext";
 import PropTypes from "prop-types";
 import { useState } from "react";
+
+import { ProdutosSelecionadosContext } from "./ProdutosSelecionadosContext";
 
 export const ProdutosSelecionadosProvider = ({ children }) => {
   const [produtosSelecionados, setProdutosSelecionados] = useState([]);
 
   const isSelecionado = (id) => {
-    return produtosSelecionados.some((item) => item === id);
+    return produtosSelecionados.some((item) => item.id === id);
   };
 
   const handleSelecionar = (produto) => {

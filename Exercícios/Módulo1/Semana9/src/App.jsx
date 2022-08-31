@@ -1,8 +1,8 @@
 import { Footer, Header, Secao, FiltroSecao } from "@components";
 import { produtos } from "@services";
-import { ProdutosSelecionadosProvider } from "contexts/ProdutosSelecionados/ProdutosSelecionadosProvider";
-import { useState } from "react";
+import { ProdutosSelecionadosProvider } from "./contexts/index";
 import styles from "./App.module.css";
+import { useState } from "react";
 
 function App() {
   const [filtro, setFiltro] = useState(null);
