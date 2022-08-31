@@ -1,4 +1,4 @@
-import { useProdutosSelecionados } from "../../contexts";
+import { useProdutosSelecionados } from "@contexts";
 import PropTypes from "prop-types";
 
 import styles from "./Card.module.css";

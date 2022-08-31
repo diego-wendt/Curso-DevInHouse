@@ -7,6 +7,8 @@
       "@components": ["./components/index.jsx"],
       "@services": ["./services/index.jsx"],
       "@contexts": ["./contexts/index.js"],
+      "@pages": ["./pages/index.js"],
+      "@router": ["./router/index.js"],
 
     }
   },
