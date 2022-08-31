@@ -1,5 +1,6 @@
 import { Footer, Header, Secao, FiltroSecao } from '@components';
 import { produtos } from '@services';
+import { ProdutosSelecionadosProvider } from 'contexts/ProdutosSelecionados/ProdutosSelecionadosProvider';
 import { useState } from 'react';
 import styles from './App.module.css';
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <ProdutosSelecionadosProvider>
       <Header />
       <main className={styles.main}>
         <FiltroSecao
@@ -53,6 +55,7 @@ function App() {
         ))}
       </main>
       <Footer />
+      </ProdutosSelecionadosProvider>
     </div>
   );
 }
