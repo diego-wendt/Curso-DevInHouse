@@ -21,9 +21,13 @@ export const ProdutosSelecionadosProvider = ({ children }) => {
     setProdutosSelecionados([...produtosSelecionados, produto]);
   };
 
+const limparProdutos = () =>{
+  setProdutosSelecionados([])
+};
+
   return (
     <ProdutosSelecionadosContext.Provider
-      value={{ produtosSelecionados, isSelecionado, handleSelecionar }}
+      value={{ produtosSelecionados, isSelecionado, handleSelecionar, limparProdutos }}
     >
       {children}
     </ProdutosSelecionadosContext.Provider>

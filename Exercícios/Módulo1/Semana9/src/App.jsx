@@ -1,9 +1,8 @@
 import { Footer, Header } from "@components";
 import { ProdutosSelecionadosProvider } from "@contexts";
 import { Router } from "@router";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import styles from "./App.module.css";
-
 
 function App() {
   return (
@@ -12,9 +11,9 @@ function App() {
         <ProdutosSelecionadosProvider>
           <Header />
 
-            <main className={styles.main}></main>
-          <Router />
-          
+          <main className={styles.main}>
+            <Router />
+          </main>
 
           <Footer />
         </ProdutosSelecionadosProvider>
