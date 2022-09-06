@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="implementado.css">
+  <link rel="stylesheet" href="styles.css">
   <title>DEVInKnowledge</title>
 </head>
 
 <body class="root">
+  
   <div class="root-container">
-    <!-- Sidebar -->
+    <!-- Sidebar --> 
     <aside class="sidebar-container">
       <div class="sidebar-container__logo">
         <h1>DEVInKnowledge</h1>
@@ -58,10 +59,9 @@
         </div>
       </form>
     </aside>
-
-    <!-- MainContent -->
+    <!-- MainContent --> 
     <main class="main-container">
-      <!-- summary -->
+      <!-- summary --> 
       <div class="summary-container">
         <div class="summary-container__card">
           <span class="title">back-end</span>
@@ -70,23 +70,23 @@
         <div class="summary-container__card">
           <span class="title">total</span>
           <span class="value">1</span>
-        </div>c
+        </div>
       </div>
 
-      <!-- filter -->
+      <!-- filter --> 
       <div class="filter-container">
         <input placeholder="Busque por uma dica..." type="text" class="inputField" />
-        <button onClick={handleOnEnterFilter} class="searchButton">
+        <button onClick={funcaoQualquer} class="searchButton">
           Buscar
         </button>
-        <button onClick={handleOnClearFilter} class="searchButton">
+        <button onClick={funcaoQualquer} class="searchButton">
           Limpar
         </button>
       </div>
 
-      <!-- card list -->
+      <!-- card list --> 
       <div class="cardList">
-        <!-- card -->
+        <!-- card --> 
         <div class="tipcard-container">
           <h2 class="title">Título da dica</h2>
           <div class="metadata">
@@ -116,6 +116,7 @@
       </div>
     </main>
   </div>
+
 </body>
 
 </html>
