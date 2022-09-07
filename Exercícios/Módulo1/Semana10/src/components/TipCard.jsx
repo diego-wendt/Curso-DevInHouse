@@ -43,7 +43,7 @@ TipCard.propTypes = {
   tip: PropTypes.shape({
     titulo: PropTypes.string.isRequired,
     video: PropTypes.string.isRequired,
-    decricao: PropTypes.string.isRequired,
+    descricao: PropTypes.string.isRequired,
     linguagem: PropTypes.string.isRequired,
     categoria: PropTypes.string.isRequired,
   }),

@@ -11,19 +11,11 @@ const dica = {
 export const MainContent = () => {
   return (
     <main className="main-container">
-      {/* <!-- summary --> */}
-
       <Summary />
-
-      {/* <!-- filter --> */}
 
       <Filter />
 
-      {/* <!-- card list --> */}
-
-      {/* <!-- card --> */}
       <CardList>
-        <TipCard tip={dica} />
         <TipCard tip={dica} />
         <TipCard tip={dica} />
         <TipCard tip={dica} />
