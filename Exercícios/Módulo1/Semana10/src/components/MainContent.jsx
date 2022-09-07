@@ -8,6 +8,13 @@ const dica = {
   descricao: "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
   video: "http://www.globo.com",
 };
+const dica2 = {
+  titulo: "aaaa",
+  linguagem: "mais um teste",
+  categoria: "devOps",
+  descricao: "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
+  video: "http://www.globo.com",
+};
 
 export const MainContent = () => {
 
@@ -24,7 +31,7 @@ export const MainContent = () => {
       <CardList>
         <TipCard tip={dica} />
         <TipCard tip={dica} />
-        <TipCard tip={dica} />
+        <TipCard tip={dica2} />
       </CardList>
     </main>
   );

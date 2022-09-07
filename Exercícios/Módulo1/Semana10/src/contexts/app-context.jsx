@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const appContext = React.createContext(null);
 
 const ContextProvider = appContext.Provider;
 
+
 // este componente é quem vai permitir que os elementos abraçados tenham acesso aos dados que estão dentro do value do ContextProvider
 export const AppContextProvider = ({ children }) => {
+ 
+  const [allTips, setAllTips ] = useState([
+    {
+      titulo: "aaaa",
+      linguagem: "mais um teste",
+      categoria: "devOps",
+      descricao: "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
+      video: "http://www.globo.com",
+    },
+  ])
+  const [filter, setFilter] = useState(null)
+ 
+  const createTip = (tip) => {
+    setAllTips((previousTips) => [...previousTips, tip])
+  }
+  
+
+  const filterTips = (query) => {
+    if (query){
+      setFilter(query)
+    }else{
+      setFilter(null)
+    }
+
+  }
+  
+  const tips = filter ? allTips.filter(tip=>tip.titulo.includes(filter)): allTips;
+ 
   return (
-  <ContextProvider value={"conectado"}>
+  <ContextProvider value={{createTip, filterTips, tips}}>
     {children}
     </ContextProvider>)
 };
