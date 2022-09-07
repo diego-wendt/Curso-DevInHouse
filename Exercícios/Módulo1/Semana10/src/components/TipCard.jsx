@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export const TipCard = ({tip}) => {
+
   const { titulo, linguagem, categoria, descricao, video } = tip;
 
   return (

@@ -1,13 +1,14 @@
-import {Home} from './pages/Home'
+import { Home } from "./pages/Home";
+import { AppContextProvider } from "./contexts/app-context";
 
 function App() {
-
-
   return (
     <>
-      <Home/>
+      <AppContextProvider>
+        <Home />
+      </AppContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

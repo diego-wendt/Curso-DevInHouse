@@ -1,4 +1,5 @@
 import { Summary, Filter, TipCard, CardList } from "../components";
+import { useAppContext } from "../contexts/app-context";
 
 const dica = {
   titulo: "Teste",
@@ -9,6 +10,11 @@ const dica = {
 };
 
 export const MainContent = () => {
+
+  const result = useAppContext();
+  console.log(result)
+
+
   return (
     <main className="main-container">
       <Summary />
