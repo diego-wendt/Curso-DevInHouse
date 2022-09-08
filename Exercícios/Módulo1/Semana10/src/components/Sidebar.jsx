@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
+import { useAppContext } from "../contexts/app-context";
 
 export const Sidebar = () => {
+  const { createTip } = useAppContext();
   const { register, handleSubmit } = useForm();
 
   const handleCreateTip = (data) => {
-    console.log(data)
-  }
+    createTip(data);
+  };
 
   return (
     <aside className="sidebar-container">
@@ -42,7 +44,7 @@ export const Sidebar = () => {
         <div className="input-group">
           <label htmlFor="linguagem">Linguagem / Skill</label>
           <input
-          {...register("linguagem")}
+            {...register("linguagem")}
             type="text"
             id="linguagem"
             placeholder="digite uma categoria..."
@@ -52,7 +54,7 @@ export const Sidebar = () => {
         <div className="input-group">
           <label htmlFor="descricao">Descrição</label>
           <textarea
-           {...register("descricao")}
+            {...register("descricao")}
             type="text"
             id="descricao"
             placeholder="digite uma descrição..."
@@ -63,7 +65,7 @@ export const Sidebar = () => {
         <div className="input-group">
           <label htmlFor="video">Vídeo do Youtube (opcional)</label>
           <input
-           {...register("video")}
+            {...register("video")}
             type="text"
             id="video"
             placeholder="digite uma url do YouTube..."

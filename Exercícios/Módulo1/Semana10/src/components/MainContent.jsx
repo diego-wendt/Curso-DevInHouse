@@ -1,26 +1,8 @@
 import { Summary, Filter, TipCard, CardList } from "../components";
 import { useAppContext } from "../contexts/app-context";
 
-const dica = {
-  titulo: "Teste",
-  linguagem: "mais um teste",
-  categoria: "devOps",
-  descricao: "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
-  video: "http://www.globo.com",
-};
-const dica2 = {
-  titulo: "aaaa",
-  linguagem: "mais um teste",
-  categoria: "devOps",
-  descricao: "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
-  video: "http://www.globo.com",
-};
-
 export const MainContent = () => {
-
-  const result = useAppContext();
-  console.log(result)
-
+  const { tips } = useAppContext();
 
   return (
     <main className="main-container">
@@ -29,9 +11,9 @@ export const MainContent = () => {
       <Filter />
 
       <CardList>
-        <TipCard tip={dica} />
-        <TipCard tip={dica} />
-        <TipCard tip={dica2} />
+        {tips.map((card, index) => (
+          <TipCard key={index} tip={card} />
+        ))}
       </CardList>
     </main>
   );

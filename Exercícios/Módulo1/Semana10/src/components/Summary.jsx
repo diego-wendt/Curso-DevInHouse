@@ -1,11 +1,22 @@
 import { SummaryCard } from "./SummaryCard";
 import PropTypes from 'prop-types';
+import { useAppContext } from "../contexts/app-context";
 
 export const Summary = () => {
+
+  const {categories} = useAppContext();
+
   return (
     <div className="summary-container">
-      <SummaryCard tipo='Front-end' quantidade={20}/>
-      <SummaryCard tipo='Back-end' quantidade={10}/>
+
+      {
+        categories.map((category, index)=>{
+          return(
+            <SummaryCard key={index} tipo={category.title} quantidade={category.count}/>
+          )
+        })
+      }
+
     </div>
   );
 };

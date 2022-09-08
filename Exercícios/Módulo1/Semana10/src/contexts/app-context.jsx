@@ -10,12 +10,29 @@ export const AppContextProvider = ({ children }) => {
     {
       titulo: "aaaa",
       linguagem: "mais um teste",
+      categoria: "FrontEnd",
+      descricao:
+        "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
+      video: "http://www.globo.com",
+    },
+    {
+      titulo: "aaaa",
+      linguagem: "mais um teste",
       categoria: "devOps",
       descricao:
         "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
       video: "http://www.globo.com",
     },
-  ]);
+    {
+      titulo: "aaaa",
+      linguagem: "mais um teste",
+      categoria: "devOps",
+      descricao:
+        "lorem10 lorem10 lorem10 lorem10lorem10 lorem10 lorem10 lorem10",
+      video: "http://www.globo.com",
+    },
+   ]);
+
   const [filter, setFilter] = useState(null);
 
   const createTip = (tip) => {
