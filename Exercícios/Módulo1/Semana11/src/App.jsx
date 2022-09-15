@@ -1,14 +1,13 @@
 import { CustomThemeProvider } from "./contexts";
 import { AppLayout } from "./layout";
-import { GlobalStyle } from "./themes";
+
 
 function App() {
   return (
     <CustomThemeProvider>
-      <GlobalStyle />
-      <AppLayout>
-        <p>Olá</p>
-      </AppLayout>
+      
+      <AppLayout/>
+       
     </CustomThemeProvider>
   );
 }

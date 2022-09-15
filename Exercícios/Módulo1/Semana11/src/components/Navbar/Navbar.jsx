@@ -1,6 +1,7 @@
 import { useCustomTheme } from "../../contexts";
-import { Button, Container, ContentTitle, Title } from "./Navbar.styled";
+import { Container, ContentTitle, Title } from "./Navbar.styled";
 import logo from "../../assets/img/vite.svg";
+import { ButtonStyled } from "../Button";
 
 export const Navbar = () => {
   const { handleTheme } = useCustomTheme();
@@ -12,7 +13,7 @@ export const Navbar = () => {
         <Title>Perfis</Title>
       </ContentTitle>
 
-      <Button>Alterar tema</Button>
+      <ButtonStyled>Alterar tema</ButtonStyled>
     </Container>
   );
 };
