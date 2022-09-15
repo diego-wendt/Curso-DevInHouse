@@ -1,1 +1,1 @@
-export * from './ButtonStyled'
+export {ButtonStyled} from './ButtonStyled'

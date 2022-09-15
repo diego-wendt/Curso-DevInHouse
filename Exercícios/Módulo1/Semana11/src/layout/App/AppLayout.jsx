@@ -1,27 +1,21 @@
-import PropTypes from "prop-types";
-
 import { ThemeProvider } from "styled-components";
-import { Navbar } from "../../components/Navbar";
-import { Profiles } from "../../components/Profile";
-import { GlobalStyle } from "./themes";
-
 import { useCustomTheme } from "../../contexts";
-import { PerfilProvider } from "../../contexts/Perfil/PerfilContext";
+import { Navbar } from "../../components";
+import { PerfilProvider } from "../../contexts/Perfil";
+import { GlobalStyle } from "../../themes";
+import { Profiles } from "../../pages/Profiles";
 
 export const AppLayout = () => {
   const { theme } = useCustomTheme();
-
   return (
-    <ThemeProvider value={theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Navbar />
       <PerfilProvider>
+      <main>
         <Profiles />
+      </main>
       </PerfilProvider>
     </ThemeProvider>
   );
-};
-
-AppLayout.propTypes = {
-  children: PropTypes.node,
 };

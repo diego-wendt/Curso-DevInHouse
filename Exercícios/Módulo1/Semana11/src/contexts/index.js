@@ -1,3 +1,2 @@
-export {CustomThemeContext} from './Theme'
-export {CustomThemeProvider} from './Theme'
-export {useCustomTheme} from './Theme'
+export * from './CustomTheme'
+export * from './Perfil'

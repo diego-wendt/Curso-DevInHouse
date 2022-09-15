@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { getThemeLocalStorage, setThemeLocalStorage } from "../../utils";
+import {
+  getThemeLocalStorage,
+  setThemeLocalStorage,
+} from "../../utils/localStorage";
 import { themeDark, themeLight } from "../../themes";
+
+import { CustomThemeContext } from "./CustomThemeContext";
 
 export const CustomThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
@@ -22,15 +27,11 @@ export const CustomThemeProvider = ({ children }) => {
   };
 
   const customTheme = theme === "dark" ? themeDark : themeLight;
-  console.log("Tema:", theme);
-
-  // pode ser feito console.log para verificar se a troca está funcionando
-  // console.log(theme.colors.backgroundPrimary);
 
   return (
-    <CustomThemeProvider value={{ theme: customTheme, handleTheme }}>
+    <CustomThemeContext.Provider value={{ theme: customTheme, handleTheme }}>
       {children}
-    </CustomThemeProvider>
+    </CustomThemeContext.Provider>
   );
 };
 

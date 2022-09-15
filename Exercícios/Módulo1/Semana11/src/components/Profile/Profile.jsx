@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { usePerfil } from "../../contexts/Perfil/PerfilContext";
 import { ButtonStyled } from "../Button";
-import { ProfileStyled as Container } from "./Profile.styled";
+import { Container } from "./Profile.styled";
 
-export const Profile = (profile) => {
+export const Profile = ({profile}) => {
   const { handleFollow } = usePerfil();
 
+ 
   return (
     <Container>
       <p>{profile.iniciaisNome}</p>

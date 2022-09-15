@@ -1,11 +1,11 @@
-import {themebase} from "./themeBase"
+import { themebase } from "./themeBase";
 
 export const themeDark = {
-    ...themebase,
-    colors: {
-        primary: '#bb86fc',
-        secondary:'#03dac6',
-        backgroundPrimary: '#121212',
-        backgroundSecondary: '#306d16'
-    },
-}
+  ...themebase,
+  colors: {
+    backgroundPrimary: "#0D1821",
+    backgroundSecondary: "#312f2f",
+    primary: "#FFF",
+    secondary: "#183642",
+  },
+};
