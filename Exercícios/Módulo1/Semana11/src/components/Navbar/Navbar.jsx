@@ -13,7 +13,7 @@ export const Navbar = () => {
         <Title>Perfis</Title>
       </ContentTitle>
 
-      <ButtonStyled>Alterar tema</ButtonStyled>
+      <ButtonStyled onClick={handleTheme}>Alterar tema</ButtonStyled>
     </Container>
   );
 };

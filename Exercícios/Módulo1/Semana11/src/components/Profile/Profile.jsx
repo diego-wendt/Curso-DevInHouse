@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { usePerfil } from "../../contexts/Perfil/PerfilContext";
+import { ButtonStyled } from "../Button";
 import { ProfileStyled as Container } from "./Profile.styled";
 
 export const Profile = (profile) => {
@@ -10,13 +11,13 @@ export const Profile = (profile) => {
       <p>{profile.iniciaisNome}</p>
       <p>{profile.nome}</p>
       <p>{profile.descricao}</p>
-      <button
+      <ButtonStyled
         onClick={() => {
           handleFollow(profile.id);
         }}
       >
         {profile.seguindo ? "Deixar de seguir" : "Seguir"}
-      </button>
+      </ButtonStyled>
     </Container>
   );
 };
