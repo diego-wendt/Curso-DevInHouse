@@ -1,0 +1,1 @@
+export {perfisJSON} from './perfis'
