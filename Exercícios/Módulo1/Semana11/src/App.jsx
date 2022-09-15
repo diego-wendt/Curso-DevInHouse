@@ -2,13 +2,12 @@ import { CustomThemeProvider } from "./contexts";
 import { AppLayout } from "./layout";
 import { GlobalStyle } from "./themes";
 
-
 function App() {
   return (
     <CustomThemeProvider>
-      <GlobalStyle/>
+      <GlobalStyle />
       <AppLayout>
-      <p>Olá</p>
+        <p>Olá</p>
       </AppLayout>
     </CustomThemeProvider>
   );

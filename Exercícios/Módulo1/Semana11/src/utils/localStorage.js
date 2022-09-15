@@ -1,13 +1,14 @@
 const THEME = 'THEME';
 
-export const getTheme = () =>{
-    const theme = localStorage.getItem(THEME)
-    return theme ?? true;
+export const getThemeLocalStorage = () =>{
+    return localStorage.getItem(THEME)
+
 }
-export const setTheme = (value) =>{
+export const setThemeLocalStorage = (value) =>{
     localStorage.setItem(THEME,value)
 }
-export const clearTheme = () =>{
+
+export const clearThemeLocalStorage = () =>{
     localStorage.clear(THEME)
 }
 
