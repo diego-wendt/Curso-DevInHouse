@@ -13,7 +13,7 @@ app.get('/pizzas', (request, response)=>{
 })
 
 app.post('/pizzas', (request,response)=>{
-
+    
     const pizza = {
         id: uuidv4(),
         name: request.body.name,
@@ -22,10 +22,19 @@ app.post('/pizzas', (request,response)=>{
         ingredients: request.body.description,
         url: request.body.url 
     }
-
+    
+        const pizzaExists = pizzas.find(pizza => pizza.name === request.body.name);
+    
+        if(pizzaExists){
+            console.log('Pizza ja existe');
+            return response.status(401).json({error: 'Pizza já encontra-se cadastrada'});
+        }
+    
     // // OU PODERIA SER ESCRITO COMO:
     // const {name, description, price, ingredients, url} = request.body
     // const pizza = {id: uuidv4(), name, description, price, ingredients, url}
+
+
 
     pizzas.push(pizza);
     response.status(201).json(pizza);
