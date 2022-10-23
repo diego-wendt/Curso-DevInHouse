@@ -48,13 +48,24 @@ app.post('/pizzas', (request,response)=>{
 
 // ROTAS PARA SOLICITAÇÕES
 
-app.get('/solicitations', (request,response)=>{
+app.get('/solicitations', (request,response) => {
 
     console.log('Listou todos os pedidos');
     response.json(solicitations);
 })
 
-app.post('/solicitations', (request, response)=>{
+
+app.get('/solicitations/:id', (request, response) => {
+const {id} = request.params;
+
+const solicitation = solicitations.find(solicitation => solicitation.id===id);
+
+console.log("id",id)
+response.json(solicitation)
+})
+
+
+app.post('/solicitations', (request, response) => {
 
     const {name_client, document_client, address_client, contact_client, payment_method, pizzas, observations} = request.body;
     
