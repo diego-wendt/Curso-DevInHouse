@@ -6,14 +6,13 @@ const app = express();
 app.use(express.json());
 
 let pizzas = [];
+let solicitations = [];
 
 app.get('/pizzas', (request, response)=>{
 
     const nameQuery = request.query.name || "";
-
     const pizzasFiltered = pizzas.filter(pizza => pizza.name.toLowerCase().includes(nameQuery.toLowerCase()));
 
-    console.log('listou todas as pizzas');
     response.json(pizzasFiltered);
 })
 
@@ -43,7 +42,38 @@ app.post('/pizzas', (request,response)=>{
 
     pizzas.push(pizza);
     response.status(201).json(pizza);
-    console.log('Cadastrou uma pizza');
+
+})
+
+
+// ROTAS PARA SOLICITAÇÕES
+
+app.get('/solicitations', (request,response)=>{
+
+    console.log('Listou todos os pedidos');
+    response.json(solicitations);
+})
+
+app.post('/solicitations', (request, response)=>{
+
+    const {name_client, document_client, address_client, contact_client, payment_method, pizzas, observations} = request.body;
+    
+    const solicitation = {
+        id: uuidv4(),
+        name_client,
+        document_client,
+        address_client,
+        contact_client,
+        payment_method,
+        pizzas,
+        observations,
+        order: "EM PRODUÇÃO",
+    };
+
+    solicitations.push(solicitation);
+
+
+    response.status(201).json(solicitation);
 })
 
 
