@@ -8,8 +8,13 @@ app.use(express.json());
 let pizzas = [];
 
 app.get('/pizzas', (request, response)=>{
+
+    const nameQuery = request.query.name || "";
+
+    const pizzasFiltered = pizzas.filter(pizza => pizza.name.toLowerCase().includes(nameQuery.toLowerCase()));
+
     console.log('listou todas as pizzas');
-    response.json(pizzas);
+    response.json(pizzasFiltered);
 })
 
 app.post('/pizzas', (request,response)=>{
