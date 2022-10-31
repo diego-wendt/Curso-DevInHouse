@@ -37,4 +37,10 @@ export class BeerService {
     const newList = beers.slice(startIndex, endIndex);
     return newList;
   }
+
+  public async deleteBeer(name: string) {
+    const beers = await this.database.getBeers();
+    const newList = beers.filter((beer) => beer.name != name);
+    this.database.saveBeers(newList);
+  }
 }

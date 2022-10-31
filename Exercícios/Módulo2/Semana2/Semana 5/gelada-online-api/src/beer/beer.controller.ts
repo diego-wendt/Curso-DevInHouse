@@ -4,8 +4,10 @@ import {
   Post,
   HttpStatus,
   Get,
+  Delete,
   Query,
   Param,
+  HttpCode,
 } from '@nestjs/common';
 import { NotFoundException } from '@nestjs/common/exceptions';
 import { NestResponse } from 'src/core/http/nest-response';
@@ -43,5 +45,11 @@ export class BeerController {
       .withHeaders({ Location: `/beers/${createdBeer.name}` })
       .withBody(createdBeer)
       .build();
+  }
+
+  @Delete(':beer')
+  @HttpCode(204)
+  public async deleteBeer(@Param('beer') name: string) {
+    await this.service.deleteBeer(name);
   }
 }
