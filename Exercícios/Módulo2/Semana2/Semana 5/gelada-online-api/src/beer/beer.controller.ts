@@ -1,5 +1,13 @@
-import { Controller, Body, Post, HttpStatus, Get, Query } from '@nestjs/common';
-import { query } from 'express';
+import {
+  Controller,
+  Body,
+  Post,
+  HttpStatus,
+  Get,
+  Query,
+  Param,
+} from '@nestjs/common';
+import { NotFoundException } from '@nestjs/common/exceptions';
 import { NestResponse } from 'src/core/http/nest-response';
 import { NestResponseBuilder } from 'src/core/http/nest-response-builder';
 import { Beer } from './beer.entity';
@@ -8,6 +16,19 @@ import { BeerService } from './beer.service';
 @Controller('beers')
 export class BeerController {
   constructor(private service: BeerService) {}
+
+  @Get(':beer')
+  public async searchBeer(@Param('beer') name: string): Promise<Beer> {
+    console.log(name);
+    const beer = await this.service.beerExist(name);
+    if (!beer) {
+      throw new NotFoundException({
+        statusCode: 404,
+        message: 'Beer not found',
+      });
+    }
+    return beer;
+  }
 
   @Get()
   public async searchBeers(@Query('page') page = 0, @Query('size') size = 10) {
