@@ -12,7 +12,6 @@ export class Beer {
 
   @IsNotEmpty()
   @IsString()
-  s;
   supplierName: string;
 
   @IsNotEmpty()
