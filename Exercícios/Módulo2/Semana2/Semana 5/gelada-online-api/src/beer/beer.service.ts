@@ -1,4 +1,5 @@
 import { Injectable, ConflictException } from '@nestjs/common';
+import { parse } from 'path';
 import { Database } from 'src/database/database';
 import { Beer } from './beer.entity';
 
@@ -21,5 +22,19 @@ export class BeerService {
   public async beerExist(name: string): Promise<Beer> {
     const beers = await this.database.getBeers();
     return beers.find((beer) => beer.name.toLowerCase() == name.toLowerCase());
+  }
+
+  public async searchBeers(page, size) {
+    const beers = await this.database.getBeers();
+
+    const startIndex = parseInt(page) * parseInt(size);
+    const endIndex = startIndex + parseInt(size);
+
+    if (startIndex >= beers.length) {
+      return [];
+    }
+
+    const newList = beers.slice(startIndex, endIndex);
+    return newList;
   }
 }
