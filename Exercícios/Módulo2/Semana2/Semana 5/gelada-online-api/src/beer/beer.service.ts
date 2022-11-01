@@ -43,4 +43,20 @@ export class BeerService {
     const newList = beers.filter((beer) => beer.name != name);
     this.database.saveBeers(newList);
   }
+
+  public async updateBeer(name, beer) {
+    const beers = await this.database.getBeers();
+
+    const editedBeers = beers.map((item) => {
+      if (item.name.toLowerCase() == name.toLowerCase()) {
+        item.name = beer.name;
+        item.description = beer.description;
+        item.supplierName = beer.supplierName;
+        item.type = beer.type;
+        return item;
+      }
+      return item;
+    });
+    this.database.saveBeers(editedBeers);
+  }
 }

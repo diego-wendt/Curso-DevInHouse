@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Get,
   Delete,
+  Put,
   Query,
   Param,
   HttpCode,
@@ -51,5 +52,23 @@ export class BeerController {
   @HttpCode(204)
   public async deleteBeer(@Param('beer') name: string) {
     await this.service.deleteBeer(name);
+  }
+
+  @Put(':beer')
+  public async updateBeer(@Body() beer: Beer, @Param('beer') name: string) {
+    const beerExist = await this.service.beerExist(name);
+    if (!beerExist) {
+      throw new NotFoundException({
+        statusCode: 404,
+        message: 'Beer not found',
+      });
+    }
+
+    await this.service.updateBeer(name, beer);
+    return new NestResponseBuilder()
+      .withStatus(HttpStatus.CREATED)
+      .withHeaders({ Location: `/beers/${beer.name}` })
+      .withBody(beer)
+      .build();
   }
 }
