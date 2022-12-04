@@ -1,0 +1,56 @@
+Para iniciar o projeto:
+
+npm install
+
+instalar dependencias gerais
+
+- npm install uuid cors node-cron dot-env express nodemailer
+
+instalar dependencias de desenvolvimento
+
+- npm install nodemon typescript ts-node -D
+
+Após instalar tudo, iniciar typescript com o comando:
+
+npx tsc --init
+
+em ts.config:
+
+remover comentário da linha =>:"AllowJs"
+setar para =>  "outDir": "./dist"
+
+criar estrutura de pastas:
+
+src
+ L------ controllers
+ L------ database
+ L------ routers
+ L------ types
+ L------ utils
+ L------ validations
+app.js
+index.js
+.env
+nodemon.json
+
+Adicionar o .env ao .gitignore
+
+Adicionara importação do dotenv no app.js
+--------
+import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
+----------
+
+em package.json alterar para:
+  "scripts": {
+    "api": "npx nodemon src/index.js",
+    "dev": "nodemon"
+  },
+
+em nodemon.json:
+{
+    "watch":["src"],
+    "ext":".ts,.js",
+    "ignore":[],
+    "exec":"ts-node ./src/index.ts"
+}

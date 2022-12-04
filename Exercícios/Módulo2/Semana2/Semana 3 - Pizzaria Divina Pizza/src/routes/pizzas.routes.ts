@@ -7,7 +7,7 @@ import {
   create,
   deletePizza,
   updatePizza,
-} from "./../controllers/pizzas.controller.js";
+} from "../controllers/pizzas.controller.js";
 
 pizzasRoutes.get("/pizzas", findMany);
 pizzasRoutes.post("/pizzas", create);

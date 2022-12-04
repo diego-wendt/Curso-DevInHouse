@@ -1,19 +1,28 @@
+import { Request, Response } from "express";
 import { v4 as uuidv4 } from "uuid";
+import { Pizza, PizzaDados, QueryPizzas } from "../types/pizzas.types.js";
+import { ParamId } from "../types/utils.types.js";
 import { readPizzas, writePizzas } from "../utils/pizzaFile.js";
 
-export function findMany(request, response) {
-  const nameQuery = request.query.name || "";
+export function findMany(
+  request: Request<{}, {}, {}, QueryPizzas>,
+  response: Response
+) {
+  const nameQuery = request.query.name?.toLowerCase() || "";
   const pizzas = readPizzas();
   const pizzasFiltered = pizzas.filter((pizza) =>
-    pizza.name.toLowerCase().includes(nameQuery.toLowerCase())
+    pizza.name.toLowerCase().includes(nameQuery)
   );
   response.json(pizzasFiltered);
 }
 
-export function create(request, response) {
+export function create(
+  request: Request<{}, {}, PizzaDados>,
+  response: Response
+) {
   const { name, description, price, url, ingredients } = request.body;
 
-  const pizzas = readPizzas();
+  const pizzas: Pizza[] = readPizzas();
 
   const pizzaExists = pizzas.find((pizza) => pizza.name === name);
 
@@ -39,7 +48,7 @@ export function create(request, response) {
   response.status(201).json(pizza);
 }
 
-export function deletePizza(request, response) {
+export function deletePizza(request: Request<ParamId>, response: Response) {
   const { id } = request.params;
   const pizzas = readPizzas();
   const locatedPizza = pizzas.find((pizza) => pizza.id == id);
@@ -53,7 +62,7 @@ export function deletePizza(request, response) {
   response.status(204).json();
 }
 
-export function updatePizza(request, response) {
+export function updatePizza(request: Request<ParamId>, response: Response) {
   const { id } = request.params;
   const pizzas = readPizzas();
   const locatedPizza = pizzas.find((pizza) => pizza.id == id);
@@ -64,15 +73,18 @@ export function updatePizza(request, response) {
 
   const { name, description, price, url, ingredients } = request.body;
 
-  locatedPizza.name = name;
-  locatedPizza.description = description;
-  locatedPizza.price = price;
-  locatedPizza.url = url;
-  locatedPizza.ingredients = ingredients;
+  const updatedPizza: Pizza = {
+    id,
+    name,
+    description,
+    price,
+    url,
+    ingredients,
+  };
 
   const filteredPizzas = pizzas.filter((pizza) => pizza.id !== id);
-  const data = [...filteredPizzas, locatedPizza];
+  const data = [...filteredPizzas, updatedPizza];
   writePizzas(data);
 
-  response.status(201).json(locatedPizza);
+  response.status(201).json(updatedPizza);
 }
