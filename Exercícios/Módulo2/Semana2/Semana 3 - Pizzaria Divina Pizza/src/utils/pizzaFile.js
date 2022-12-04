@@ -1,8 +1,8 @@
 import fs from "fs";
 
 export function readPizzas() {
-  const pizzasInFile = fs.readFileSync("pizzas.json").toString();
-  return JSON.parse(pizzasInFile);
+  const DATA = fs.readFileSync("pizzas.json").toString();
+  return JSON.parse(DATA);
 }
 
 export function writePizzas(data) {
