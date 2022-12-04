@@ -7,9 +7,9 @@ import cron from "node-cron";
 // import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 // dotenv.config();
 
-import pizzasRoutes from "./src/routes/pizzas.routes.js";
-import soliciationRoutes from "./src/routes/solicitations.routes.js";
-import { sendEmailSolicitationInProduction } from "./src/jobs/sendEmailSolicitationInProduction.js";
+import pizzasRoutes from "./routes/pizzas.routes.js";
+import soliciationRoutes from "./routes/solicitations.routes.js";
+import { sendEmailSolicitationInProduction } from "./jobs/sendEmailSolicitationInProduction.js";
 
 export const app = express();
 
