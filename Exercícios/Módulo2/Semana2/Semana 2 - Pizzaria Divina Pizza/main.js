@@ -1,6 +1,5 @@
-const express = require('express');
-const {v4: uuidv4} = require('uuid');
-
+const express = require("express");
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 app.use(express.json());
@@ -8,86 +7,109 @@ app.use(express.json());
 let pizzas = [];
 let solicitations = [];
 
-app.get('/pizzas', (request, response)=>{
+app.get("/pizzas", (request, response) => {
+  const nameQuery = request.query.name || "";
+  const pizzasFiltered = pizzas.filter((pizza) =>
+    pizza.name.toLowerCase().includes(nameQuery.toLowerCase())
+  );
 
-    const nameQuery = request.query.name || "";
-    const pizzasFiltered = pizzas.filter(pizza => pizza.name.toLowerCase().includes(nameQuery.toLowerCase()));
+  response.json(pizzasFiltered);
+});
 
-    response.json(pizzasFiltered);
-})
+app.post("/pizzas", (request, response) => {
+  const pizza = {
+    id: uuidv4(),
+    name: request.body.name,
+    description: request.body.description,
+    price: request.body.price,
+    ingredients: request.body.description,
+    url: request.body.url,
+  };
 
-app.post('/pizzas', (request,response)=>{
-    
-    const pizza = {
-        id: uuidv4(),
-        name: request.body.name,
-        description: request.body.description,
-        price: request.body.price,
-        ingredients: request.body.description,
-        url: request.body.url 
+  const pizzaExists = pizzas.find((pizza) => pizza.name === request.body.name);
+
+  if (pizzaExists) {
+    console.log("Pizza ja existe");
+    return response
+      .status(401)
+      .json({ error: "Pizza já encontra-se cadastrada" });
+  }
+
+  // // OU PODERIA SER ESCRITO COMO:
+  // const {name, description, price, ingredients, url} = request.body
+  // const pizza = {id: uuidv4(), name, description, price, ingredients, url}
+
+  pizzas.push(pizza);
+  response.status(201).json(pizza);
+});
+
+app.put("/pizzas/:id", (request, response) => {
+  const { id } = request.params;
+  const { name, description, price, url, ingredients } = request.body;
+
+  pizzas = pizzas.map((pizza) => {
+    if (pizza.id == id) {
+      pizza = { name, description, price, url, ingredients };
+      return pizza;
     }
-    
-        const pizzaExists = pizzas.find(pizza => pizza.name === request.body.name);
-    
-        if(pizzaExists){
-            console.log('Pizza ja existe');
-            return response.status(401).json({error: 'Pizza já encontra-se cadastrada'});
-        }
-    
-    // // OU PODERIA SER ESCRITO COMO:
-    // const {name, description, price, ingredients, url} = request.body
-    // const pizza = {id: uuidv4(), name, description, price, ingredients, url}
+    return pizza;
+  });
+  response.status(201);
+});
 
+app.delete("/pizzas/:id", (request, response) => {
+  const { id } = request.params;
 
-
-    pizzas.push(pizza);
-    response.status(201).json(pizza);
-
-})
-
+  pizzas = pizzas.filter((pizza) => pizza.id != id);
+  response.status(204);
+});
 
 // ROTAS PARA SOLICITAÇÕES
 
-app.get('/solicitations', (request,response) => {
+app.get("/solicitations", (request, response) => {
+  console.log("Listou todos os pedidos");
+  response.json(solicitations);
+});
 
-    console.log('Listou todos os pedidos');
-    response.json(solicitations);
-})
+app.get("/solicitations/:id", (request, response) => {
+  const { id } = request.params;
 
+  const solicitation = solicitations.find(
+    (solicitation) => solicitation.id === id
+  );
 
-app.get('/solicitations/:id', (request, response) => {
-const {id} = request.params;
+  console.log("id", id);
+  response.json(solicitation);
+});
 
-const solicitation = solicitations.find(solicitation => solicitation.id===id);
+app.post("/solicitations", (request, response) => {
+  const {
+    name_client,
+    document_client,
+    address_client,
+    contact_client,
+    payment_method,
+    pizzas,
+    observations,
+  } = request.body;
 
-console.log("id",id)
-response.json(solicitation)
-})
+  const solicitation = {
+    id: uuidv4(),
+    name_client,
+    document_client,
+    address_client,
+    contact_client,
+    payment_method,
+    pizzas,
+    observations,
+    order: "EM PRODUÇÃO",
+  };
 
+  solicitations.push(solicitation);
 
-app.post('/solicitations', (request, response) => {
+  response.status(201).json(solicitation);
+});
 
-    const {name_client, document_client, address_client, contact_client, payment_method, pizzas, observations} = request.body;
-    
-    const solicitation = {
-        id: uuidv4(),
-        name_client,
-        document_client,
-        address_client,
-        contact_client,
-        payment_method,
-        pizzas,
-        observations,
-        order: "EM PRODUÇÃO",
-    };
-
-    solicitations.push(solicitation);
-
-
-    response.status(201).json(solicitation);
-})
-
-
-app.listen(3333, ()=>{
-    console.log('Servidor Online');
-})
+app.listen(3333, () => {
+  console.log("Servidor Online");
+});
